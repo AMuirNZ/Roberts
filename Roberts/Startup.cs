@@ -29,14 +29,23 @@ namespace Roberts
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
+            services.AddDbContext<CatsContext>(options => options.UseSqlite("Data Source=roberts.db"));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
-
+            // services.AddTransient<IEmailSender, EmailSender>();
+            
             services.AddMvc();
+        }
+
+        public interface IEmailSender
+        {
+            Task SendEmailAsync(string email, string subject, string message);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
