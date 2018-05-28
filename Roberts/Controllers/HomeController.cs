@@ -16,7 +16,7 @@ namespace Roberts.Controllers
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Test Project", "dksalazars@gmail.com"));
-            message.To.Add(new MailboxAddress("Gary", "i588191@nwytg.com"));
+            message.To.Add(new MailboxAddress("Gary", "dksalzar@gmail.com"));
             message.Subject = "ASP.NET Test";
             message.Body = new TextPart("plain")
             {
