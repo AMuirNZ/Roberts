@@ -14,21 +14,21 @@ namespace Roberts.Controllers
     {
         public IActionResult Index()
         {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Test Project", "dksalazars@gmail.com"));
-            message.To.Add(new MailboxAddress("Gary", "dksalzar@gmail.com"));
-            message.Subject = "ASP.NET Test";
-            message.Body = new TextPart("plain")
-            {
-                Text = "Hello World mail"
-            };
-            using (var client = new SmtpClient())
-            {
-                client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("dksalazars@gmail.com", "amazingmerino42");
-                client.Send(message);
-                client.Disconnect(true);
-            }
+            //var message = new MimeMessage();
+            //message.From.Add(new MailboxAddress("Test Project", "dksalazars@gmail.com"));
+            //message.To.Add(new MailboxAddress("Gary", "dksalzar@gmail.com"));
+            //message.Subject = "ASP.NET Test";
+            //message.Body = new TextPart("plain")
+            //{
+            //    Text = "Hello World mail"
+            //};
+            //using (var client = new SmtpClient())
+            //{
+            //    client.Connect("smtp.gmail.com", 587, false);
+            //    client.Authenticate("dksalazars@gmail.com", "amazingmerino42");
+            //    client.Send(message);
+            //    client.Disconnect(true);
+            //}
 
             return View();
         }
